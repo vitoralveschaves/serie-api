@@ -23,4 +23,11 @@ public class Serie {
     private String description;
     private Integer season;
     private String imageUrl;
+
+    public Serie(SerieDTO serieDto) {
+        this.title = serieDto.title();
+        this.description = serieDto.description();
+        this.season = serieDto.season();
+        this.imageUrl = serieDto.imageUrl();
+    }
 }

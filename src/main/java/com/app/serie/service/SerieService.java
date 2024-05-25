@@ -7,6 +7,9 @@ import com.app.serie.repository.SerieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.UUID;
+
 @Service
 public class SerieService {
 
@@ -17,6 +20,15 @@ public class SerieService {
         Serie serie = new Serie(serieDto);
         this.serieRepository.save(serie);
         return new SerieDetailDTO(serie);
+    }
+
+    public List<SerieDetailDTO> getAllSeries() {
+        List<Serie> serieList = this.serieRepository.findAll();
+        return serieList.stream().map(SerieDetailDTO::new).toList();
+    }
+
+    public void deleteSerieById(UUID id) {
+        this.serieRepository.deleteById(id);
     }
 
 }

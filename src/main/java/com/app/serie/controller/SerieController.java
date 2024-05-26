@@ -26,7 +26,8 @@ public class SerieController {
     }
 
     @DeleteMapping
-    public void delete(@RequestBody UUID id) {
+    public void delete(@RequestParam UUID id) {
+        System.out.println(id);
         this.serieService.deleteSerieById(id);
     }
 }

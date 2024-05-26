@@ -30,5 +30,4 @@ public class SerieService {
     public void deleteSerieById(UUID id) {
         this.serieRepository.deleteById(id);
     }
-
 }
